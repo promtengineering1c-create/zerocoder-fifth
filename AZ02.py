@@ -15,17 +15,20 @@ df = pd.DataFrame(data)
 
 subjects_df = df[subjects]
 
-mean_grades = subjects_df.mean()
-median_grades = subjects_df.median()
-
 print("--- Студенты и оценки ---")
 print(df.to_string(index=False))
 
+mean_grades = subjects_df.mean()
 print("\n--- Средняя оценка по каждому предмету ---")
 print(mean_grades)
 
+median_grades = subjects_df.median()
 print("\n--- Медианная оценка по каждому предмету ---")
 print(median_grades)
+
+std_grades = subjects_df.std()
+print("\n--- Стандартное отклонение по каждому предмету ---")
+print(std_grades)
 
 Q1_math = df['Математика'].quantile(0.25)
 print("\n--- Q1 по математике ---")
