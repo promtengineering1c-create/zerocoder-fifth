@@ -1,0 +1,48 @@
+.card {
+    width: 320px;
+    margin: 20px; /* Внешний отступ, чтобы карточки не прилипали друг к другу по вертикали */
+    background-color: deeppink;
+    border: 5px solid dimgray; /* Свойство BORDER (рамка) */
+    border-radius: 20px;
+    transition: 1s;
+    color: white; 
+}
+
+.card:hover {
+    background-color: deepskyblue;
+    border: 5px solid black; 
+    /* добавляем свойство для плавности: */
+    transition: 1s;
+}
+
+.photo {
+    height: 40%;
+    padding: 40px 40px 10px 40px;
+    /* padding - это внутренний отступ */
+    /* Для внешних отступов используется margin */
+}
+
+.info {
+    padding: 10px 40px 40px 40px;
+    height: 40%;
+}
+
+img {
+    position: relative; /* Свойство POSITION (смещение относительно своего места) */
+    left: 17%;
+    
+    width: 150px;
+    border-radius: 20px;
+    border: 3px dashed white; /* Еще один BORDER для картинки */
+}
+
+/* Стили для текста внутри */
+.fio {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.email, .birthdate, .city {
+    font-size: 16px;
+    margin: 5px 0;
+}

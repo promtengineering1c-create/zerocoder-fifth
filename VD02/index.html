@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport"
+         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Первый сайт</title>
+   <link rel="stylesheet" href="style.css">
+   
+   <script src="users.js"></script>
+</head>
+<body>
+
+<div id="cards-container"></div>
+
+<script>
+    // Простой скрипт, который берет переменные из users.js и собирает HTML
+    let container = document.getElementById("cards-container");
+    
+    for(let i = 0; i < usersData.length; i++) {
+        container.innerHTML += `
+        <div class="card">
+           <div class="photo">
+               <img src="${usersData[i].photo}">
+           </div>
+
+           <div class="info">
+               <h1 class="fio">${usersData[i].fio}</h1>
+               <p class="email">E-mail: ${usersData[i].email}</p>
+               <p class="birthdate">Дата рождения: ${usersData[i].birthdate}</p>
+               <p class="city">Город: ${usersData[i].city}</p>
+           </div>
+        </div>
+        `;
+    }
+</script>
+
+</body>
+</html>

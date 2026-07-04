@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport"
+         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Первый сайт</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+   <div class="photo">
+       <img src="images.jpeg">
+   </div>
+
+   <div class="info">
+       <h1>Гарри Поттер</h1>
+       <p> литературный персонаж, главный герой серии романов английской писательницы Джоан Роулинг.
+           На одиннадцатый день рождения Гарри узнаёт, что является волшебником, и ему уготовано
+           место в школе волшебства «Хогвартс», в которой он будет практиковать магию под руководством
+           директора Альбуса Дамблдора и других школьных профессоров. </p>
+   </div>
+</div>
+
+style.css:
+.photo {
+   height: 40%;
+   padding: 40px;
+   # padding - это внутренний отступ
+   # Для внешних отступов используется margin
+}
+.info {
+   padding: 40px;
+   height: 40%;
+}
+img {
+   position: relative;
+   left:17%;
+   border-radius: 20px;
+}
+
+div: {
+    width: 100px;
+    height: 100px;
+    background-color: deeppink;
+    border-radius: 50%;
+    transition: 1s;
+}
+
+div:hover {
+    background-color: #0080ff;
+    width: 150px;
+    height: 150px;
+    # добавляем свойство для плавности:
+    transition: 1s;
+}
