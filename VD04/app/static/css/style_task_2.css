@@ -1,0 +1,22 @@
+body {
+    height: 100vh;
+    background-color: #282c34;
+    color: #61dafb;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog {
+    background-color: #ffffff; 
+    color: #1e3a8a; 
+}
+
+.contacts {
+    background-color: #facc15; 
+    color: #1f2937; 
+}
