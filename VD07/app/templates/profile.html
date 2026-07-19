@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Профиль пользователя</h2>
+    <p>Привет, {{ user.name }}!</p>
+    <p>Твой email: {{ user.email }}</p>
+    
+    <!-- Новая ссылка на редактирование профиля -->
+    <a href="{{ url_for('main.edit_profile') }}"><button>Редактировать профиль</button></a>
+{% endblock %}

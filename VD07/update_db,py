@@ -1,0 +1,32 @@
+import os
+from flask_migrate import init, migrate, upgrade
+from app import create_app
+
+# Создаем экземпляр нашего приложения
+app = create_app()
+
+def run_migrations():
+    # Открываем контекст приложения, чтобы Flask видел базу
+    with app.app_context():
+        print("Проверка состояния базы данных...")
+        
+        # 1. Если папки migrations еще нет — инициализируем её
+        if not os.path.exists('migrations'):
+            print("Папка migrations не найдена. Инициализируем...")
+            init()
+        
+        # 2. Сканируем модели и создаем файл миграции
+        try:
+            print("Создание новых миграций...")
+            migrate(message="Автоматическое обновление структуры")
+        except Exception as e:
+            print(f"Миграция не создана (возможно, изменений нет). Ошибка: {e}")
+        
+        # 3. Применяем изменения в базу данных
+        print("Применение изменений к базе данных...")
+        upgrade()
+        
+        print("Готово! База данных в актуальном состоянии.")
+
+if __name__ == '__main__':
+    run_migrations()
