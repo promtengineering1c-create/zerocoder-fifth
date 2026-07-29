@@ -1,5 +1,6 @@
 import os
 import sys
+from sqlalchemy import select
 
 from flask_migrate import (
     init as db_init,
@@ -39,7 +40,8 @@ def create_admin_user():
         admin_username = app.config.get('ADMIN_USERNAME', 'admin')
         admin_password = app.config.get('ADMIN_PASSWORD', 'adminadmin')
 
-        admin = User.query.filter_by(username=admin_username).first()
+        stmt = select(User).filter_by(username=admin_username)
+        admin = db.session.execute(stmt).scalar_one_or_none()
         if admin:
             print(f"Пользователь {admin_username} уже существует.")
             return
