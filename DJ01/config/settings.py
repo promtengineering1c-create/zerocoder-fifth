@@ -116,3 +116,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# Добавление путей к файлам статики
+STATICFILES_DIRS = [
+    BASE_DIR / "static"
+]
+
+# Добавляем настройки для медиа-файлов (загружаемых пользователями)
+# URL-адрес для доступа к файлам извне (витрина)
+MEDIA_URL = '/media/'
+# Физический путь на сервере, куда Django будет сохранять файлы (склад)
+MEDIA_ROOT = BASE_DIR / 'media'

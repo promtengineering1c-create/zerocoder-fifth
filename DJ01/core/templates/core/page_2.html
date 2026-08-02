@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    {% if title %}
+        {{ title }} | 2
+    {% else %}
+        Вторая страница | 2
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<h1>Вторая страница</h1>
+{% endblock %}
