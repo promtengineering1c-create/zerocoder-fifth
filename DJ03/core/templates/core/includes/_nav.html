@@ -1,0 +1,13 @@
+{% load static %}
+<aside>
+    <img src="{% static 'core/img/default.jpg' %}" alt="Ретро музыка" width="150px">
+    <br>
+    <span>Мой проект</span>
+    <br>
+    <ul>
+        <li><a href="{% url 'core:Home' %}">Главная страница</a></li>
+        <li><a href="{% url 'core:Page2' %}">Вторая страница</a></li>
+        <li><a href="{% url 'core:Page3' %}">Третья страница</a></li>
+        <li><a href="{% url 'news:Page2' %}">Новости</a></li>
+    </ul>
+</aside>

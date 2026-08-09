@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% else %}Новость
+    {% endif %}
+{% endblock %}
+
+{% block navigation %}
+    {% include 'news/includes/_nav.html' %}
+{% endblock %}
+
+{% block content %}
+    <article class="full-news">
+        <h1>{{ article.title }}</h1>
+        <p><small>{{ article.pub_date|date:"d.m.Y H:i" }} | Автор: {{ article.author_name }}</small></p>
+        
+        <div class="news-content">
+            {# Здесь выводим полный текст #}
+            {{ article.content }}
+        </div>
+        
+        <hr>
+        {# Возврат к списку. Используем динамический URL #}
+        <a href="{% url 'news:Home' %}">&larr; Вернуться к списку новостей</a>
+    </article>
+{% endblock %}
+
+{% block footer %}
+    {% include 'includes/_footer.html' %}    
+{% endblock %}

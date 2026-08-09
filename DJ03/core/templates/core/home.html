@@ -1,4 +1,4 @@
-{% extends 'core/base.html' %}
+{% extends 'base.html' %}
 
 {% block title %}
     {% if title %}
@@ -8,6 +8,15 @@
     {% endif %}
 {% endblock %}
 
+{% block navigation %}
+    {% include 'core/includes/_nav.html'%}
+{% endblock %}
+
 {% block content %}
     <h1>Главная страница</h1>
 {% endblock %}
+
+{% block footer %}
+    {% include 'includes/_footer.html'%}    
+{% endblock %}
+

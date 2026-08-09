@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if title %}
+        {{ title }} | 2
+    {% else %}
+        Вторая страница | 2
+    {% endif %}
+{% endblock %}
+
+{% block navigation %}
+    {% include 'news/includes/_nav.html'%}
+{% endblock %}
+
+{% block content %}
+    <h1>Новости</h1>
+    
+    <div class="news-list">
+        {# Запускаем цикл по коллекции news, которую передали из views.py #}
+        {% for article in news %}
+            <article class="news-item">
+                <<h2><a href="{% url 'news:detail' article.id %}">{{ article.title }}</a></h2>
+
+                <h2>{{ article.author_name }}</h2>
+                
+                {# Используем фильтр |date для красивого форматирования времени #}
+                <p><small>{{ article.pub_date|date:"d.m.Y H:i" }} | Автор: {{ article.author_name }}</small></p>
+                
+                {# Проверяем, заполнено ли необязательное поле description #}
+                {% if article.description %}
+                    <p><strong>{{ article.description }}</strong></p>
+                {% endif %}
+                
+                {# Используем фильтр |truncatewords, чтобы вывести только первые 30 слов полного текста #}
+                <p>{{ article.content|truncatewords:30 }}</p>
+                
+                <hr>
+            </article>
+        {# Блок empty отработает, если таблица в базе пустая #}
+        {% empty %}
+            <p>Новостей пока нет.</p>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {% include 'includes/_footer.html'%}    
+{% endblock %}

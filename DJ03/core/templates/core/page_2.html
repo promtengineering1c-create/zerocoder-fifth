@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if title %}
+        {{ title }} | 2
+    {% else %}
+        Вторая страница | 2
+    {% endif %}
+{% endblock %}
+
+{% block navigation %}
+    {% include 'core/includes/_nav.html'%}
+{% endblock %}
+
+{% block content %}
+    <h1>Вторая страница</h1>
+{% endblock %}
+
+{% block footer %}
+    {% include 'includes/_footer.html'%}    
+{% endblock %}
