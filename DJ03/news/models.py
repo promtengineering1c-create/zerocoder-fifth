@@ -1,3 +1,5 @@
+from django.utils import timezone
+
 from django.db import models
 from django.conf import settings
 
@@ -5,7 +7,7 @@ class Article(models.Model):
     title = models.CharField(max_length=255, verbose_name='Заголовок')
     description = models.CharField(max_length=500, blank=True, verbose_name='Описание')
     content = models.TextField(verbose_name='Текст')
-    pub_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата публикации')
+    pub_date = models.DateTimeField(default=timezone.now, verbose_name='Дата публикации')
     
     # 1. Системная ссылка на профиль (может быть пустой)
     author_link = models.ForeignKey(
