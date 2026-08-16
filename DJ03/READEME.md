@@ -25,3 +25,12 @@
 ## 5. Автоматизация (DevOps)
 *   **Management Command:** Написан идемпотентный скрипт `core/management/commands/init_project.py` для автоматического создания суперпользователя на основе данных из окружения.
 
+django-admin startproject <my_project> .
+django-admin startapp <my_app>
+
+python manage.py makemigrations <my_app>
+python manage.py migrate
+
+python manage.py init_project
+
+python manage.py runserver
