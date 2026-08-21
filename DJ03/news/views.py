@@ -1,7 +1,8 @@
 from django.shortcuts import get_object_or_404, redirect, render
 
-from .models import Article
 from .forms import ArticleForm
+from .models import Article
+
 
 def index(request):
     return render(request, 'core/home.html')

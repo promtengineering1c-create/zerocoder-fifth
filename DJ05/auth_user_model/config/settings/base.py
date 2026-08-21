@@ -1,6 +1,6 @@
-import environ
-import os
 from pathlib import Path
+
+import environ
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -11,10 +11,10 @@ env = environ.Env(
 environ.Env.read_env(BASE_DIR / '.env')
 
 SECRET_KEY = env('SECRET_KEY')
+SUPERUSER_PASSWORD = env('DJANGO_SUPERUSER_PASSWORD')
 
-SUPERUSER_USERNAME = os.environ.get('DJANGO_SUPERUSER_USERNAME', 'admin')
-SUPERUSER_EMAIL = os.environ.get('DJANGO_SUPERUSER_EMAIL', 'admin@example.com')
-SUPERUSER_PASSWORD = os.environ.get('DJANGO_SUPERUSER_PASSWORD')
+SUPERUSER_USERNAME = env('DJANGO_SUPERUSER_USERNAME', default='admin')
+SUPERUSER_EMAIL = env('DJANGO_SUPERUSER_EMAIL', default='admin@example.com')
 
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -27,16 +27,20 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'phonenumber_field',
+    'rest_framework',
+    'corsheaders',
 ]
 
 LOCAL_APPS = [
     'core.apps.CoreConfig',
     'accounts.apps.AccountsConfig',
+    'bot.apps.BotConfig',
 ]
 
 INSTALLED_APPS = LOCAL_APPS + THIRD_PARTY_APPS + DJANGO_APPS
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -103,3 +107,9 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",        # Если появится локальный React/Vue
+    "http://127.0.0.1:5500",        # Live Server в VS Code
+    "https://my-telegram-app.com",  # Потенциальный домен Web App
+]

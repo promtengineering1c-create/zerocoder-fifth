@@ -1,0 +1,43 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "django_api",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/DJ05/auth_user_model/manage.py",
+            "cwd": "${workspaceFolder}/DJ05/auth_user_model",
+            "python": "${workspaceFolder}/.venv/Scripts/python.exe",
+            "args": [
+                "runserver",
+                "--noreload"
+            ],
+            "console": "integratedTerminal",
+            "django": true,
+            "justMyCode": true,
+            "presentation": {
+                "order": 0
+            }
+        },
+        {
+            "name": "telegram_bot",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/DJ05/auth_user_model/bot_run.py",
+            "cwd": "${workspaceFolder}/DJ05/auth_user_model",
+            "python": "${workspaceFolder}/.venv/Scripts/python.exe",
+            "console": "internalConsole",
+            "justMyCode": true,
+            "presentation": {
+                "order": 1
+            }
+        }
+    ],
+    "compounds": [
+        {
+            "name": "debug_all",
+            "configurations": ["django_api", "telegram_bot"],
+            "stopAll": true
+        }
+    ]
+}
